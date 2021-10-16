@@ -1,10 +1,13 @@
 import React from 'react';
 import Directory from '../../components/Directory/Directory';
 
-const HomePage = () => (
-  <div className='homepage'>
-    <Directory/>
-  </div>
-);
+const HomePage = (props) => {
+  console.log(props)
+    return (
+     <div className='homepage'>
+      <Directory/>
+    </div>
+    )
+};
 
 export default HomePage;
