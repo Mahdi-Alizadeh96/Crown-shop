@@ -1,13 +1,17 @@
 body {
   font-family: 'Open Sans Condensed', sans-serif;
   transition: all 03s;
-  padding: 20px 80px; }
+  padding: 20px 60px; }
+
+a {
+  text-decoration: none;
+  color: black; }
 
 .homepage {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 80px; }
+  padding: 20px 0px; }
 
 .directory-menu {
   width: 100%;
@@ -113,5 +117,24 @@ body {
   .collection-preview .preview {
     display: flex;
     justify-content: space-between; }
+
+.header {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px; }
+  .header .logo-container {
+    height: 100%;
+    width: 70px;
+    padding: 25px; }
+  .header .options {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; }
+    .header .options .option {
+      padding: 10px 15px; }
 
 /*# sourceMappingURL=main.css.map */
