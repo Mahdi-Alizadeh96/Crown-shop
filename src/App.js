@@ -1,15 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router";
 import HomePage from "./pages/Home/HomePage";
-
-
-export function Hats() {
-  return (
-    <div>
-      Hats
-    </div>
-  )
-}
+import Shop from "./pages/Shop/Shop";
 
 
 
@@ -17,7 +9,7 @@ function App() {
   return (
     <>
     <Switch>
-      <Route path={'/Hats'} component={Hats} />
+      <Route path={'/Shop'} component={Shop}/>
       <Route exact path={'/'} component={HomePage}/>
     </Switch>
     </>
