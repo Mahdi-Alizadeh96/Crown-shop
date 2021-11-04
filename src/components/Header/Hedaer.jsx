@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { auth } from '../../firebase/firebase.utils';
 
-export default function Hedaer() {
+export default function Hedaer({currentUser}) {
     return (
         <div className='header'>
             <Link to='/' className='logo-container'>
@@ -10,6 +11,11 @@ export default function Hedaer() {
             <div className='options'>
                 <Link className='option' to='/Shop'>Shop</Link>
                 <Link className='option' to='/Contant'>Contant</Link>
+                {
+                    currentUser ?
+                    <div className='option' onClick={()=>auth.signOut()}>SIGN OUT</div> :
+                    <Link className='option' to='/Auth' >SIGN IN</Link>
+                }
             </div>
         </div>
     )
