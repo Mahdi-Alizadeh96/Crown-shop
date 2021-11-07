@@ -207,7 +207,7 @@ a {
 
 .sign-in-and-sign-up {
   display: flex;
-  justify-content: space-around; }
+  justify-content: space-evenly; }
 
 .sign-in {
   width: 380px;
