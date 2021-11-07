@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router";
 import Hedaer from "./components/Header/Hedaer";
-import { auth } from "./firebase/firebase.utils";
+import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import HomePage from "./pages/Home/HomePage";
 import Shop from "./pages/Shop/Shop";
 import SignInAndUp from "./pages/Sign-in&up/SignIn&Up";
@@ -14,13 +14,30 @@ class App extends React.Component {
       currentUser : null
     }
   }
-
-  unsubscribeFromAuth = null;
+  unsubscribeFromAuth = () => {
+    return null
+  }
 
   componentDidMount() {
-    auth.onAuthStateChanged(user=> {
-      this.setState({currentUser : user})
-      console.log(user);
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if(userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+        userRef.onSnapshot(snapShot => {
+          this.setState({
+            currentUser : {
+              id : snapShot.id,
+              ...snapShot.data()
+            }
+          }, ()=> {
+            console.log(this.state);
+          })
+        })
+      }
+      else {
+        this.setState({
+          currentUser : userAuth
+        })
+      }
     })
   }
 

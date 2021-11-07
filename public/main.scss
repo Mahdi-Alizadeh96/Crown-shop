@@ -278,6 +278,10 @@ justify-content: space-between;
       }
     }
   }
+.sign-in-and-sign-up {
+  display: flex;
+  justify-content: space-around;
+}
 .sign-in {
   width: 380px;
   display: flex;
@@ -289,4 +293,13 @@ justify-content: space-between;
     display: flex;
     justify-content: center;
   }
-}  
+}
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+
+  .title {
+    margin: 10px 0;
+  }
+}
