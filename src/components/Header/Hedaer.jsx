@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { auth } from '../../firebase/firebase.utils';
 
-export default function Hedaer({currentUser}) {
+function Hedaer({currentUser}) {
     return (
         <div className='header'>
             <Link to='/' className='logo-container'>
@@ -20,3 +21,9 @@ export default function Hedaer({currentUser}) {
         </div>
     )
 }
+
+const mapStateToProps = state => ({
+    currentUser : state.user.currentUser
+})
+
+export default connect(mapStateToProps)(Hedaer);
