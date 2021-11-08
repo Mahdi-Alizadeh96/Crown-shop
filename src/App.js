@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router";
+import { Route, Switch, Redirect } from "react-router";
 import Hedaer from "./components/Header/Hedaer";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { connect } from 'react-redux';
@@ -43,15 +43,21 @@ class App extends React.Component {
         <Switch>
           <Route path={'/Shop'} component={Shop}/>
           <Route exact path={'/'} component={HomePage}/>
-          <Route exact path={'/Auth'} component={SignInAndUp}/>
+          <Route exact path={'/Auth'} render={ ()=> this.props.currentUser ? 
+            (<Redirect to='/'/>) : 
+            (<SignInAndUp/>) } />
         </Switch>
       </>
     );
   }
 }
 
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser
+})
+
 const mapDispatchToProps = dispach => ({
   setCurrentUser: user => dispach(setCurrentUser(user))
 })
 
-export default connect(null ,mapDispatchToProps)(App);
+export default connect(mapStateToProps ,mapDispatchToProps)(App);
