@@ -7,8 +7,8 @@ export default function PrevCollection({title ,items}) {
             <h1 className={'title'}>{title.toUpperCase()}</h1>
             <div className={'preview'}>
                 {
-                    items.filter((item,inx)=> inx < 4).map(({id , ...otherProps}) => (
-                        <CollectionItem key={id} {...otherProps} />
+                    items.filter((item,inx)=> inx < 4).map((item) => (
+                        <CollectionItem key={item.id} item={item} />
                     ))
                 }
             </div>
