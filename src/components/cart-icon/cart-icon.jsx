@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { createSelectorCreator } from 'reselect';
 import { toggleCartHidden } from '../../redux/cart/cart-actions';
 import { selectCartItemsCount } from '../../redux/cart/cart-selectors';
-
 
 function CartIcon({toggleCartHidden, itemCount}) {
     return (
@@ -17,10 +17,8 @@ const mapDispachToProps = dispach => ({
     toggleCartHidden : () => dispach(toggleCartHidden())
 });
 
-const mapStateToProps = (state) => {
-    return ({
-        itemCount : selectCartItemsCount(state)
-    })
-}
+const mapStateToProps = state => ({
+    itemCount : selectCartItemsCount(state)
+})
 
 export default connect(mapStateToProps , mapDispachToProps)(CartIcon);
