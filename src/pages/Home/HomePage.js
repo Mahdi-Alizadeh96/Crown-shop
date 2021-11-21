@@ -1,8 +1,7 @@
 import React from 'react';
 import Directory from '../../components/Directory/Directory';
 
-const HomePage = (props) => {
-  console.log(props)
+const HomePage = () => {
     return (
       <div className='homepage'>
         <Directory/>

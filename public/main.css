@@ -86,7 +86,7 @@ a {
     justify-content: space-between; }
 
 .collection-item {
-  width: 22%;
+  width: 22vw;
   display: flex;
   flex-direction: column;
   height: 350px;
@@ -266,6 +266,10 @@ a {
     font-weight: bold;
     bottom: 12px; }
 
+.collections-overview {
+  display: flex;
+  flex-direction: column; }
+
 .cart-dropdown {
   position: absolute;
   width: 240px;
@@ -357,5 +361,18 @@ a {
   .checkout-item .remove-button {
     padding-left: 12px;
     cursor: pointer; }
+
+.collection-page {
+  display: flex;
+  flex-direction: column; }
+  .collection-page .title {
+    font-size: 38px;
+    margin: 0 auto 30px; }
+  .collection-page .items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px; }
+    .collection-page .items .collection-item {
+      margin-bottom: 30px; }
 
 /*# sourceMappingURL=main.css.map */

@@ -12,7 +12,7 @@ function Hedaer({currentUser , hidden}) {
     return (
         <div className='header'>
             <Link to='/' className='logo-container'>
-                <img className='logo' src="media/crown.svg" alt="crown logo" />
+                <img className='logo' src="/media/crown.svg" alt="crown logo" />
             </Link>
             <div className='options'>
                 <Link className='option' to='/Shop'>Shop</Link>
