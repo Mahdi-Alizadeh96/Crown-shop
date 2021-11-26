@@ -7,29 +7,30 @@ import CartIcon from '../cart-icon/cart-icon';
 import CartDrowpdown from '../cart-dropdown/CartDrowpdown';
 import { selectCartHidden } from '../../redux/cart/cart-selectors';
 import { selectCurrentUser } from '../../redux/user/user-selectors';
+import { HeaderContainer , LogoContainer , OptionsContainer , OptionLink , OptionDiv } from './Header-Styles';
 
 function Hedaer({currentUser , hidden}) {
     return (
-        <div className='header'>
-            <Link to='/' className='logo-container'>
+        <HeaderContainer>
+            <LogoContainer to='/'>
                 <img className='logo' src="/media/crown.svg" alt="crown logo" />
-            </Link>
-            <div className='options'>
-                <Link className='option' to='/Shop'>Shop</Link>
-                <Link className='option' to='/Contant'>Contant</Link>
+            </LogoContainer>
+            <OptionsContainer>
+                <OptionLink to='/Shop'>Shop</OptionLink>
+                <OptionLink to='/Contant'>Contant</OptionLink>
                 {
                     currentUser ?
-                    <div className='option' onClick={()=>auth.signOut()}>SIGN OUT</div> :
-                    <Link className='option' to='/Auth'>SIGN IN</Link>
+                    <OptionDiv onClick={()=>auth.signOut()}>SIGN OUT</OptionDiv> :
+                    <OptionLink to='/Auth'>SIGN IN</OptionLink>
                 }
                 <CartIcon/>
-            </div>
+            </OptionsContainer>
             {
                 !hidden ? 
                 <CartDrowpdown/> :
                 null
             }
-        </div>
+        </HeaderContainer>
     )
 }
 
